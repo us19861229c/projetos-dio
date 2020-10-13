@@ -51,4 +51,11 @@ function resetarTabuleiro() {
   [primeiraCartaVirada, segundaCartaVirada] = [null, null];
 }
 
+(function embaralharCartas() {
+  cartas.forEach(carta => {
+    let posAleatoria = Math.floor(Math.random() * 12);
+    carta.style.order = posAleatoria
+  });
+})();
+
 cartas.forEach( carta => carta.addEventListener('click', virarCarta))
