@@ -1,9 +1,12 @@
 const cartas = document.querySelectorAll('.carta');
 let cartaVirada = false;
 let primeiraCartaVirada, segundaCartaVirada; 
+let travaTabuleiro = false;
 
 
 function virarCarta() {
+  if(travaTabuleiro) return;
+
   this.classList.add('virar');
   if(!cartaVirada){
     cartaVirada = true;
@@ -30,9 +33,12 @@ function desabilitarCartas() {
 }
 
 function desvirarCartas() {
+  travaTabuleiro = true;
   setTimeout(() => {
     primeiraCartaVirada.classList.remove('virar');
     segundaCartaVirada.classList.remove('virar');
+
+    travaTabuleiro = false;
   }, 1000);
 }
 
