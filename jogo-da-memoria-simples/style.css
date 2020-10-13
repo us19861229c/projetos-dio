@@ -16,6 +16,7 @@ body {
   margin: auto;
   display: flex;
   flex-wrap: wrap;
+  perspective: 1000px;
 }
 
 .carta {
@@ -26,6 +27,8 @@ body {
   box-shadow: 1px 1px 1px rgba(1, 1, 1, .3);
   cursor: pointer;
   transform: sclae(1);
+  transform-style: preserve-3d;
+  transition: transform 0.9s;
 }
 
 .carta:active {
@@ -41,4 +44,13 @@ body {
   position: absolute;
   border-radius: 5px;
   background: white;
+  backface-visibility: hidden;
+}
+
+.face-carta {
+  transform: rotateY(180deg);
+}
+
+.carta.virar {
+  transform: rotateY(180deg);
 }
