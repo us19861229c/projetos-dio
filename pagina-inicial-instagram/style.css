@@ -35,3 +35,68 @@ body {
 .instagram-coluna-esquerda img {
   width: 50rem;
 }
+
+.instagram-coluna-direita {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 34rem;
+  width: 50%;
+}
+
+.grupo-acesso {
+  align-items: center;
+  background-color: white;
+  border: 1px solid lightgrey;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.3rem 0;
+  width: 100%;
+}
+
+.grupo-acesso:nth-child(1) {
+  min-height: 19rem;
+}
+
+.instagram-logo {
+  height: 3rem;
+  margin-bottom: 1.3rem;
+}
+
+.foto-perfil {
+  align-items:center;
+  border-radius: 50%;
+  display:flex;
+  justify-content: center;
+  overflow: hidden;
+  width: 160px;
+  height: 160px;
+  margin-bottom: 1.3rem;
+}
+
+.foto-perfil img {
+  object-fit: contain;
+  transform: translateY(-16px) translateX(105px) scale(0.95);
+}
+
+.instagram-entrar {
+  background-color: #0095fb;
+  border-radius: 4px;
+  color: white;
+  padding: 8px;
+  margin-bottom: 1.3rem;
+}
+
+.instagram-sair {
+  color: #0095fb;
+}
+
+.alerta-acesso {
+  color: rgb(160, 160, 160);
+}
+
+.link-azul {
+  color: #0095fb;
+}
