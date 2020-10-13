@@ -16,3 +16,22 @@ body {
   padding: 0;
   width: 100%;
 }
+
+.instagram-empacotador {
+  align-items:center;
+  display:flex;
+  height: 100vh;
+  justify-content: center;
+  width: 60%;
+}
+
+.instagram-coluna-esquerda {
+  align-items:center;
+  display:flex;
+  justify-content: center;
+  width: 50%;
+}
+
+.instagram-coluna-esquerda img {
+  width: 50rem;
+}
