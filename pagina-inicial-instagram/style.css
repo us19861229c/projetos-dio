@@ -143,6 +143,19 @@ body {
     width: 90%;
   }
 }
+@media (max-width: 768px) {
+  body {
+    margin: 5% 0;
+  }
+
+  .instagram-coluna-esquerda {
+    transform: translateY(-30px) scale(0.90);
+  }
+
+  .grupo-acesso {
+    margin: .35rem 0
+  }
+}
 
 @media (max-width: 650px) {
   body {
@@ -151,6 +164,7 @@ body {
 
   .instagram-empacotador {
     width: 90%;
+    height: 90%;
   }
 
   .instagram-coluna-esquerda {
@@ -163,5 +177,11 @@ body {
 
   .grupo-acesso {
     border: 1px solid transparent;
+  }
+}
+
+@media (max-width: 320px) {
+  .instagram-entrar {
+    text-align: center;
   }
 }
