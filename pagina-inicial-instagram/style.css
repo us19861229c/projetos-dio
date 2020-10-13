@@ -135,3 +135,33 @@ body {
   background: url('./img/googleplay-button.png') no-repeat;
   background-size: contain;
 }
+
+/* Responsividade */
+
+@media (max-width: 1024px) {
+  .instagram-empacotador {
+    width: 90%;
+  }
+}
+
+@media (max-width: 650px) {
+  body {
+    background-color: #ffffff;
+  }
+
+  .instagram-empacotador {
+    width: 90%;
+  }
+
+  .instagram-coluna-esquerda {
+    display: none;
+  }
+
+  .instagram-coluna-direita {
+    width: 100%;
+  }
+
+  .grupo-acesso {
+    border: 1px solid transparent;
+  }
+}
