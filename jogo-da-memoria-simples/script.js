@@ -7,6 +7,8 @@ let travaTabuleiro = false;
 function virarCarta() {
   if(travaTabuleiro) return;
 
+  if(this === primeiraCartaVirada) return;
+
   this.classList.add('virar');
   if(!cartaVirada){
     cartaVirada = true;
@@ -30,6 +32,8 @@ function checarSeCombina() {
 function desabilitarCartas() {
   primeiraCartaVirada.removeEventListener('click', virarCarta);
   segundaCartaVirada.removeEventListener('click', virarCarta);
+
+  resetarTabuleiro()
 }
 
 function desvirarCartas() {
@@ -38,8 +42,13 @@ function desvirarCartas() {
     primeiraCartaVirada.classList.remove('virar');
     segundaCartaVirada.classList.remove('virar');
 
-    travaTabuleiro = false;
+    resetarTabuleiro();
   }, 1000);
+}
+
+function resetarTabuleiro() {
+  [cartaVirada, travaTabuleiro] = [false, false];
+  [primeiraCartaVirada, segundaCartaVirada] = [null, null];
 }
 
 cartas.forEach( carta => carta.addEventListener('click', virarCarta))
