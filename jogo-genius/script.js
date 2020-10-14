@@ -19,24 +19,31 @@ const verde = document.querySelector('.verde');
 // aqui cria a ordem aleatória das cores que devem ser repetidas pelo usuário:
 let sortearOrdem = () => {
   let numeroCor = Math.floor(Math.random() * 4);
+  console.log('qual numero da cor (0 a 3):', numeroCor )
   ordem[ordem.length] = numeroCor;
+  console.log('qual a ordem:', ordem[ordem.length])
   ordemClicada = [];
 
   for(let itemCor in ordem) {
+    console.log('o que é itemCor:', itemCor)
     let elementoCor = criarElementoCor(ordem[itemCor]);
+    console.log('quem é o elementoCor:', elementoCor);
     ativarCor(elementoCor, Number(itemCor) + 1);
   }
 }
 
 // aqui a cor sorteada é ativada, a partir das informações de sortearOrdem:
 let ativarCor = (divCor, tempo) => {
+  console.log('quem é esse tempo antes:', tempo)
   tempo = tempo * 500;
+  console.log('quem é esse tempo agora:', tempo)
   setTimeout(() => {
     divCor.classList.add('selecionada')
+    console.log('quem é essa divCor:', divCor)
+    setTimeout(() => {
+      divCor.classList.remove('selecionada')
+    }, 250);
   }, tempo - 250);
-  setTimeout(() => {
-    divCor.classList.remove('selecionada')
-  });
 }
 
 // aqui checa se a divCor clicada é a mesma que foi sorteada aleatoriamente:
@@ -48,7 +55,7 @@ let checarCliqueCombinado = () => {
     }
   }
   if(ordemClicada.length == ordem.length) {
-    alert(`Ponruação: ${placar}\nvocê acertou! :) \nIniciando próximo nível!`);
+    alert(`Pontuação: ${placar}\nVocê acertou! :) \nIniciando próximo nível!`);
     proximoNivel();
   }
 }
@@ -59,10 +66,9 @@ let clicar = (cor) => {
   criarElementoCor(cor).classList.add('selecionada');
 
   setTimeout(() => {
-    criarElementoCor(cor).classList.remove('selecionada')
-  }, 250)
-
-  checarCliqueCombinado();
+    criarElementoCor(cor).classList.remove('selecionada');
+    checarCliqueCombinado();
+  }, 250)  
 }
 
 
@@ -102,3 +108,12 @@ let iniciarJogo = () => {
 
   proximoNivel();
 }
+
+// eventos de clique na div: 
+azul.onclick = () =>  clicar(0);
+amarela.onclick = () => clicar(1);
+vermelha.onclick = () => clicar(2);
+verde.onclick = () => clicar(3);
+
+// inicia o jogo:
+iniciarJogo()
