@@ -18,7 +18,7 @@ const verde = document.querySelector('.verde');
 
 // aqui cria a ordem aleatória das cores que devem ser repetidas pelo usuário:
 let sortearOrdem = () => {
-  let numeroCor = Math.floot(Math.random() * 4);
+  let numeroCor = Math.floor(Math.random() * 4);
   ordem[ordem.length] = numeroCor;
   ordemClicada = [];
 
@@ -44,11 +44,11 @@ let checarCliqueCombinado = () => {
   for(let item in ordemClicada) {
     if(ordemClicada[item] != ordem[item]) {
       perdeu();
-      break
+      break;
     }
   }
   if(ordemClicada.length == ordem.length) {
-    alert(`Ponruação: ${placar}\nvocê acertou! Iniciando próximo nível!`);
+    alert(`Ponruação: ${placar}\nvocê acertou! :) \nIniciando próximo nível!`);
     proximoNivel();
   }
 }
@@ -68,13 +68,13 @@ let clicar = (cor) => {
 
 // aqui a cor é retornada de acordo com a ordem e seu índice:
 let criarElementoCor = (cor) => {
-  if(cor === 0) {
+  if(cor == 0) {
     return azul;
-  } else if (cor === 1) {
+  } else if (cor == 1) {
     return amarela;
-  } else if (cor === 2) {
+  } else if (cor == 2) {
     return vermelha;
-  } else if (cor === 3) {
+  } else if (cor == 3) {
     return verde;
   }
 }
