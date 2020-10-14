@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  background-color: blueviolet;
+}
+
+.jogo-principal {
+  height: 100vh;
+  width: 95vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.genius {
+  display: grid;
+  grid-template-areas: "verde vermelha"
+  "amarela azul";
+  grid-gap: 10px;
+  border: 1px solid white;
+  background-color: white;
+  border-radius: 100%;
+  width: 600px;
+  height: 600px;
+}
+
+.azul {
+  grid-area: azul;
+  background-color: blue;
+  border-bottom-right-radius: 100%;
+}
+
+.amarela {
+  grid-area: amarela;
+  background-color: rgb(251, 255, 0);
+  border-bottom-left-radius: 100%;
+}
+
+.verde {
+  grid-area: verde;
+  background-color: rgb(0, 255, 0);
+  border-top-left-radius: 100%;
+}
+
+.vermelha {
+  grid-area: vermelha;
+  background-color: rgb(255, 0, 0);
+  border-top-right-radius: 100%;
+}
