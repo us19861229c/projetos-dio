@@ -35,14 +35,19 @@ body {
   border-bottom-left-radius: 100%;
 }
 
+.vermelha {
+  grid-area: vermelha;
+  background-color: rgb(255, 0, 0);
+  border-top-right-radius: 100%;
+}
+
 .verde {
   grid-area: verde;
   background-color: rgb(0, 255, 0);
   border-top-left-radius: 100%;
 }
 
-.vermelha {
-  grid-area: vermelha;
-  background-color: rgb(255, 0, 0);
-  border-top-right-radius: 100%;
+
+.selecionada {
+  filter: opacity(85%) brightness(55%);
 }
