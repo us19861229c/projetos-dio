@@ -1,4 +1,5 @@
 const dino = document.querySelector('.dino');
+const telaDeFundo = document.querySelector('.tela-fundo');
 let taPulando = false;
 
 function lidarComTeclasDePulo({keyCode}) {
@@ -35,5 +36,29 @@ function pulo() {
     }
   }, 20)
 }
+
+function criarCactos() {
+  const cactos = document.createElement('div');
+  let cactosPosicionamento = 1000;
+  let horaAleatoria = Math.random() * 6000;
+  
+  cactos.classList.add('cactos');
+  cactos.style.left = 1000 + "px";
+  telaDeFundo.appendChild(cactos);
+
+  let cactoVemCorrendo = setInterval(() => {
+    if (cactosPosicionamento < -60) {
+      clearInterval(cactoVemCorrendo);
+      telaDeFundo.removeChild(cactos);
+    } else {
+      cactosPosicionamento -= 10;
+      cactos.style.left = cactosPosicionamento + "px";
+    }
+  }, 20);
+
+  setTimeout(criarCactos, horaAleatoria);
+}
+
+criarCactos();
 
 document.addEventListener('keyup', lidarComTeclasDePulo)
