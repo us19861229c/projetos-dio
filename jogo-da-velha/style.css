@@ -20,6 +20,7 @@ button {
   font-size: 60px;
   margin: 5px;
   cursor: pointer;
+  color: #eee;
 }
 
 .jogador, .vencedor {
