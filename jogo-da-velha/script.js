@@ -1,5 +1,6 @@
 let jogador = null;
 let jogadorAtual = document.querySelector('#jogador-selecionado') ;
+const botaoReiniciarJogo = document.querySelector('#reiniciar')
 
 jogadorXouO('X')
 
@@ -37,6 +38,17 @@ function escolherQuadrado(id) {
   jogadorXouO(jogador);
 }
 
+function reiniciaJogo() {
+
+  for (let pos = 1; pos <= 9; pos += 1) {
+      let quadrado = document.querySelector(`#q${pos}`);
+      quadrado.style.background = '#eee';
+      quadrado.style.color = '#eee';
+      quadrado.innerHTML = '-';
+  }
+  jogadorXouO('X');
+}
+
 quadrado1.onclick = (event) => escolherQuadrado(event.srcElement.id);
 quadrado2.onclick = (event) => escolherQuadrado(event.srcElement.id);
 quadrado3.onclick = (event) => escolherQuadrado(event.srcElement.id);
@@ -46,3 +58,4 @@ quadrado6.onclick = (event) => escolherQuadrado(event.srcElement.id);
 quadrado7.onclick = (event) => escolherQuadrado(event.srcElement.id);
 quadrado8.onclick = (event) => escolherQuadrado(event.srcElement.id);
 quadrado9.onclick = (event) => escolherQuadrado(event.srcElement.id);
+botaoReiniciarJogo.onclick = () => reiniciaJogo();
