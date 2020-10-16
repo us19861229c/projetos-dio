@@ -1,6 +1,9 @@
 const suaNave = document.querySelector('.heroi-alien');
 const palcoJogo = document.querySelector('#area-principal-jogo');
 const inimigosImg = ['./img/monster-1.png', './img/monster-2.png', './img/monster-3.png'];
+const comoJogar = document.querySelector('.como-jogar');
+const botaoIniciar = document.querySelector('.botao-iniciar');
+let intervaloDeInimigos; 
 
 // movimento e tiro da nave
 function naveVoadora(event) {
@@ -132,5 +135,17 @@ function checarColisaoLaser(laser, inimigo) {
   }
 }
 
-window.addEventListener('keydown', naveVoadora);
-criarInimigos();
+// função de iniciar o jogo 
+
+botaoIniciar.addEventListener('click', (event) => {
+  iniciarJogo();
+})
+
+function iniciarJogo() {
+  botaoIniciar.style.display = 'none';
+  comoJogar.style.display = 'none';
+  window.addEventListener('keydown', naveVoadora);
+  intervaloDeInimigos = setInterval(() => {
+    criarInimigos();
+  }, 2000)
+}

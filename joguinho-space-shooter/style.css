@@ -45,3 +45,21 @@ body {
 .inimigo-abatido {
   opacity: 0;
 }
+
+.como-jogar {
+  position: relative;
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
+  top: 0;
+}
+
+.botao-iniciar {
+  text-align: center;
+  position: relative;
+  top: 20%;
+  color: white;
+  font-weight: 900;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
