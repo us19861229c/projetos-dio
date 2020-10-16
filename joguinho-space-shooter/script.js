@@ -149,3 +149,23 @@ function iniciarJogo() {
     criarInimigos();
   }, 2000)
 }
+
+// função de fim de jogo 
+function fimDeJogo() {
+  window.removeEventListener('keydown', naveVoadora);
+  clearInterval(intervaloDeInimigos);
+  
+  let inimigos = document.querySelectorAll('.inimigo');
+  inimigos.forEach(inimigo => inimigo.remove());
+  
+  let laser = document.querySelectorAll('.laser');
+  laser.forEach(laser => laser.remove());
+
+  setTimeout(() => {
+    alert('Você perdeu! :(');
+    suaNave.style.top = '250px';
+    botaoIniciar.style.display = 'block';
+    comoJogar.style.display = 'block';
+  })
+
+}
