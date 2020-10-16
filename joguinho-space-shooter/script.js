@@ -1,5 +1,6 @@
 const suaNave = document.querySelector('.heroi-alien');
 const palcoJogo = document.querySelector('#area-principal-jogo');
+const inimigosImg = ['./img/monster-1.png', './img/monster-2.png', './img/monster-3.png'];
 
 // movimento e tiro da nave
 function naveVoadora(event) {
@@ -62,6 +63,15 @@ function criarElementoLaser() {
 function movimentoLaser(laser) {
   let intervaloDeLaser = setInterval(() => {
     let eixoHorizontalPosicionamento = parseInt(laser.style.left);
+    let inimigos = document.querySelectorAll('.inimigo');
+    
+    inimigos.forEach( inimigo => {
+      if(checarColisaoLaser(laser, inimigo)) {
+        inimigo.src= './img/explosion.png';
+        inimigo.classList.remove('inimigo');
+        inimigo.classList.add('inimigo-abatido');
+      }
+    })
 
     if(eixoHorizontalPosicionamento === 340) {
       laser.remove();
@@ -71,4 +81,56 @@ function movimentoLaser(laser) {
   }, 10)
 }
 
-window.addEventListener('keydown', naveVoadora)
+// função para criar inimigos aleatórios 
+function criarInimigos() {
+  let novoInimigo = document.createElement('img');
+  let inimigoCaminhoImagem = inimigosImg[Math.floor(Math.random()* inimigosImg.length)];
+  novoInimigo.src = inimigoCaminhoImagem;
+  novoInimigo.classList.add('inimigo');
+  novoInimigo.classList.add('inimigo-transito');
+  novoInimigo.style.left = '370px';
+  novoInimigo.style.top = `${Math.floor(Math.random() * 330) + 30}px`;
+  palcoJogo.appendChild(novoInimigo);
+  movimentoInimigo(novoInimigo);
+}
+
+// função para movimentar os inimigos
+function movimentoInimigo(inimigo) {
+  let intervaloDeInimigos = setInterval(() => {
+    let eixoHorizontalPosicionamento = parseInt(window.getComputedStyle(inimigo).getPropertyValue('left'));
+    if(eixoHorizontalPosicionamento <= 50) {
+      if(Array.from(inimigo.classList).includes('inimigo-abatido')) {
+        inimigo.remove();
+      } else {
+        fimDeJogo();
+      }
+    } else {
+      inimigo.style.left = `${eixoHorizontalPosicionamento - 4}px`
+    }
+  }, 30)
+}
+
+//função de colisão
+function checarColisaoLaser(laser, inimigo) {
+  let laserPosicionamentoTopo = parseInt(laser.style.top);
+  let laserPosicionamentoEsquerda = parseInt(laser.style.left);
+  let laserAlcance = laserPosicionamentoTopo - 20; 
+
+
+  let inimigoPosicionamentoTopo = parseInt(inimigo.style.top);
+  let inimigoPosicionamentoEsquerda = parseInt(inimigo.style.left);
+  let inimigoAlcance = inimigoPosicionamentoTopo - 30; 
+
+  if(laserPosicionamentoEsquerda != 340 && laserPosicionamentoEsquerda + 40 >= inimigoPosicionamentoEsquerda) {
+    if (laserPosicionamentoTopo <= inimigoPosicionamentoTopo && laserAlcance >= inimigoAlcance) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
+}
+
+window.addEventListener('keydown', naveVoadora);
+criarInimigos();
