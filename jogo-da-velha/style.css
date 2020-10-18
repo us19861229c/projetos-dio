@@ -1,0 +1,30 @@
+body {
+  text-align: center;
+}
+
+button {
+  margin-top: 5px;
+  width: 100px;
+  height: 50px;
+  background: #eee;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.quadrado {
+  text-align: center;
+  width: 40px;
+  background: #eee;
+  display: inline-block;
+  padding: 30px;
+  font-size: 50px;
+  margin: 5px;
+  cursor: pointer;
+  color: #eee;
+}
+
+div p {
+  font-size: 25px;
+  margin-top: 5px;
+}
+
