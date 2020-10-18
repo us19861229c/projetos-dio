@@ -1,0 +1,56 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  background-color: beige;
+}
+
+.jogo-memoria {
+  height: 640px;
+  width: 640px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+}
+
+.carta {
+  height: calc(33.33% - 10px);
+  width: calc(25% - 10px);
+  margin: 5px;
+  position: relative;
+  box-shadow: 1px 1px 1px rgba(1, 1, 1, .3);
+  cursor: pointer;
+  transform: sclae(1);
+  transform-style: preserve-3d;
+  transition: transform 0.9s;
+}
+
+.carta:active {
+  transform: scale(0.97);
+  transition: transform .3s;
+}
+
+.face-carta,
+.verso-carta {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
+  background: white;
+  backface-visibility: hidden;
+}
+
+.face-carta {
+  transform: rotateY(180deg);
+}
+
+.carta.virar {
+  transform: rotateY(180deg);
+}
