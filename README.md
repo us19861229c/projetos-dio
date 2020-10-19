@@ -5,4 +5,4 @@
 1.  Jogo do dinossauro offline
 1.  Jogo da memória do Mario
 1.  Jogo da velha
-1.  Jogo Space Shooter 
+1. ~~Jogo Space Shooter~~ 
